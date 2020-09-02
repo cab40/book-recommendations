@@ -2,7 +2,7 @@ require './lib/models.rb' # Give us access to the database, see file for info
 
 # Given a book_id, returns the number of 
 # users that have given it a non zero rating
-#17
+
 def num_non_zero_ratings book_id
     a = Rating.book_ratings_array(book_id)
     count=0
@@ -22,7 +22,7 @@ end
 
 # given a book_id, returns the book's average rating
 # for all non-zero ratings
-#3.8235
+
 def average_book_rating book_id
     a = Rating.book_ratings(book_id)
     i = 0
