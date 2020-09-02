@@ -1,7 +1,6 @@
 
 require './lib/models.rb'
 
-# WARNING: this will first delete all data
 load_test_data!
 Book.create(id: 1, title: "A", author: "Author A")
 Book.create(id: 2, title: "B", author: "Author B")
