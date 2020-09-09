@@ -1,7 +1,6 @@
-require './lib/models.rb' # Give us access to the database, see file for info
+require './lib/models.rb' #Gives us access to the database
 
-# Given a book_id, returns the number of 
-# users that have given it a non zero rating
+# Given a book_id, returns a list of users who have returned a non-zero rating
 
 def num_non_zero_ratings book_id
     a = Rating.book_ratings_array(book_id)
@@ -20,8 +19,7 @@ def num_non_zero_ratings book_id
 end
 
 
-# given a book_id, returns the book's average rating
-# for all non-zero ratings
+# given a book_id, returns the book's average rating for all non-zero ratings
 
 def average_book_rating book_id
     a = Rating.book_ratings(book_id)
@@ -37,9 +35,8 @@ def average_book_rating book_id
 end
 
 
-# Given two book_id's, compute and return the cosine similarity
-# between the two books.  If a book has no non-zero
-# ratings, the similarity is zero.  
+#Given two book_id's, return the cosine similarity
+# between the two books.  If a book has no non-zero ratings the similarity is zero 
 
 def max (a,b)
   a>b ? a : b
@@ -67,6 +64,7 @@ def similarity (book_a, book_b)
             ub1 += 1
         end 
     end
+    
 =begin
         This is to ensure that the book ratings are by the same user. It checks that the user is the same for both
         books. If the user is the same, it adds the product of the ratings to the sum. If the users are not the same,
@@ -89,6 +87,7 @@ def similarity (book_a, book_b)
         i+=1
     end
     denominator = (Math.sqrt(sumb1))*(Math.sqrt(sumb2))
+    
 =begin
         Get sum of all the book 1 ratings squared then get the sum of all the book 2 ratings squared.
         Multiply the square root of these 2 sums to get the denominator
